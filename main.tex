@@ -1,0 +1,176 @@
+\documentclass{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+% Graphics
+\usepackage[left=3cm,right=2cm,top=2cm,bottom=2cm]{geometry} 
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\graphicspath{ {./images/} }
+
+% Math
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% Figures and tables
+\usepackage{array}
+\usepackage{multirow}
+
+% Enumerations
+\usepackage{enumitem}
+
+% Bibliography
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{referencias.bib}
+
+% Hyperlinks
+\usepackage{hyperref}
+
+% Algorithms
+\usepackage[spanish,ruled,vlined]{algorithm2e}
+
+% Code highlighting
+\usepackage{listings}
+
+% hyperref setup
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = black, %Colour of internal links
+  citecolor   = red %Colour of citations
+}
+
+\newcommand\YAMLcolonstyle{\color{red}\mdseries}
+\newcommand\YAMLkeystyle{\color{black}\bfseries}
+\newcommand\YAMLvaluestyle{\color{blue}\mdseries}
+
+\makeatletter
+
+% Macro for YAML syntax highlighting
+\newcommand\language@yaml{yaml}
+\expandafter\expandafter\expandafter\lstdefinelanguage
+\expandafter{\language@yaml}
+{
+  keywords={true,false,null,y,n},
+  keywordstyle=\color{darkgray}\bfseries,
+  basicstyle=\YAMLkeystyle,
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\YAMLvaluestyle\ttfamily,
+  moredelim=[l][\color{orange}]{\&},
+  moredelim=[l][\color{magenta}]{*},
+  moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},
+  morestring=[b]',
+  morestring=[b]",
+  literate =    {---}{{\ProcessThreeDashes}}3
+                {>}{{\textcolor{red}\textgreater}}1     
+                {|}{{\textcolor{red}\textbar}}1 
+                {\ -\ }{{\mdseries\ -\ }}3,
+}
+% switch to key style at EOL
+\lst@AddToHook{EveryLine}{\ifx\lst@language\language@yaml\YAMLkeystyle\fi}
+\makeatother
+
+% Commands
+\newcommand\ProcessThreeDashes{\llap{\color{cyan}\mdseries-{-}-}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} %Lineas
+
+
+% Highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{Chatbot para orientación para la comunidad de ESCOM en el marco normativo}
+
+
+\author{Allan Garcia}
+\date{November 2019}
+
+\begin{document}
+
+%
+% Title page
+%
+\begin{titlepage}
+		%Header
+		\centering
+		\begin{figure}
+			\begin{minipage}[t]{0.4\textwidth}
+    			\includegraphics[height=80pt]{images/escom}
+  			\end{minipage}
+  			\hfill
+			\begin{minipage}[t]{0.4\textwidth}
+				\begin{flushright}
+	    			\includegraphics[height=80pt]{images/ipn}				
+				\end{flushright}
+  			\end{minipage}
+		\end{figure}
+		
+		
+		\textsc{\LARGE Escuela Superior de Cómputo}\\[.2cm]
+		\textsc{\LARGE Instituto Politécnico Nacional}\\[1.4cm]
+		
+		\textsc{\Large Trabajo Terminal \#2019-B040}
+		
+		Junio del 2020
+		
+		%Titulo
+		\HRule \\[0.9cm]
+			{ \LARGE \bfseries Chatbot para orientación para la comunidad de ESCOM en el marco normativo}\\[0.7cm]
+		\HRule \\[1cm]
+		
+		%Nombres
+		\textbf{\Large \emph{Presenta:}}\\[.2cm]
+		
+		{\large Allan de Jesús García \'{A}lvarez}\\[.8cm]
+		
+		\textbf{\Large \emph{Director:}}\\[.2cm]
+		
+		{\large Catalán Salgado Edgar Armando}\\[.8cm]
+		
+		\textbf{\large Palabras Clave}: procesamiento de lenguaje natural, minería de texto, sistemas de recuperación de información, similitud de semántica.
+\end{titlepage}
+
+\tableofcontents
+
+% Estructura general
+% Introduccion, estado del arte, marco teorico, analisis, diseño, desarrollo, pruebas, conclusiones, bibliografia, apendices
+
+\include{1-introduccion}
+\include{2-marco-teorico}
+\include{3-estado-del-arte}
+\include{4-analisis}
+\include{5-diseno}
+\include{6-desarrollo}
+\include{conclusion}
+
+
+\printbibliography
+
+\end{document}

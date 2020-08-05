@@ -1,0 +1,28 @@
+level: TITULO
+items:
+- text: DISPOSICIONES GENERALES
+  enum: PRIMERO
+  content:
+    level: CAPITULO
+    items:
+    - text: NATURALEZA Y FINALIDADES
+      enum: UNICO
+      contents:
+        level: ARTICULO
+        items:
+        - text: El presente Reglamento deriva de ...
+          enum: 1
+        - text: El Instituto Politecnico Nacional...
+          enum: 2
+        - text: Para cumplir con sus finalidades...
+          enum: 3
+- text: DE LA FUNCION EDUCATIVA
+  content:
+    level: CAPITULO
+    items:
+    - text: GENERALIDADES
+    - text: DE LA DOCENCIA
+      content:
+        level: SECCION
+        items:
+        - text: DE LOS PROGRAMAS ACADEMICOS Y DE LOS PLANES Y PROGRAMAS DE ESUDIO
