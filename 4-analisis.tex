@@ -48,59 +48,67 @@ A continuación, se describe el comportamiento y la funcionalidad esencial para 
 \begin{enumerate}[leftmargin=2.5cm ,label={\bfseries RNF-\arabic*}]
     \item Se sugiere que el resultado de las consultas sean breves y concisos. 
     \item El bot debe poder expresar intenciones de asesorar en temas referentes al marco normativo.
-    \item Se desea que la aplicacion se desarrolle utilizando herramientas de licencia abierta y software libre.
+    \item Se desea que la aplicación se desarrolle utilizando herramientas de licencia abierta y software libre.
 \end{enumerate}
+
 
 \section{Metodología}
 
-Las actividades a desarrollarse se harán siguiendo una metodología de \textbf{prototipado evolutivo}. Esta elección se hace con base a la necesidad de estar evaluando constantemente el diseño inicial y los ajustes en la implementación. Los prototipos están basado en los siguientes tres componentes:
+Las actividades a desarrollarse se harán siguiendo una metodología de \textbf{prototipado evolutivo}. Esta elección se hace con base a la necesidad de estar tener que estar evaluando constantemente el diseño inicial de la funcionalidad, principalmente la ejecución del algoritmo de similitud. Para ello, se busca poder refinar detalles sin perder la estabilidad de las iteraciones pasadas.
+
+Los prototipos están basado en los siguientes componentes:
 
 \begin{itemize}
     \item \textbf{Interfaz de usuario}: contiene la página web y el sistema cliente que se encarga de realizar peticiones HTTP al chatbot.
     \item \textbf{Base de conocimiento}: serialización y persistencia del conocimiento de los documentos normativos y su representación semántica necesaria para poder procesarla.
     \item \textbf{Intérprete semántico}: componente de entendimiento del chatbot que se encarga de procesar consultas textuales en búsquedas de similitud sobre la base de conocimiento.
+    \item \textbf{Preprocesador de Texto}: contiene todos los ejecutables y las implementaciones de los algoritmos que ayudan a transformar documentos de un formato a otro para la extracción, transformación de datos necesarios para el intérprete y carga a la base de conocimiento.
 \end{itemize}
 
-Con base a estos componentes, se definen los siguientes prototipos:
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{images/4/componentes}
+    \caption{Diagrama de componentes}
+    \label{fig:diagrama-componentes}
+\end{figure}
 
 \subsection{Primer Prototipo}
 
-En este primer prototipo inicial se espera construir el componente gráfico del sistema cliente así como la implementación del modelo de datos para la base de conocimiento. Las funcionalidades de este prototipo son:
+En este primer prototipo inicial se espera construir el componente visual del  cliente web así como la preparación de los datos a procesar y la definición inicial del esquema en la fuente de datos. Las actividades principales en esta etapa son:
 
 \begin{itemize}
     \item Construcción de la página web
     \item Desarrollo del sistema cliente
-    \item Construcción del modelo de datos inicial
+    \item Construcción del servicio de almacenamiento
 \end{itemize}
 
 \subsection{Segundo Prototipo}
 
-En este segunda iteración del prototipado se enfocará principalmente a conectar los componentes y un flujo general funcionando para la atención de consultas. Las funcionalidades adicionales a la primera iteración serán:
+En este segunda iteración del prototipado se enfocará principalmente a la implementación del intérprete que categoriza la intención de un usuario, así como las funciones que se encargarán de gestionar el procesamiento de la acción correspondiente a la intención.
 
 \begin{itemize}
-    \item Transformación semántica de texto
-    \item Ejecución del algoritmo de similitud.
-    \item Recuperación de artículos de la base de datos.
+    \item Implementación del intérprete con reconocimiento de intención.
+    \item Algoritmos de transformación de texto.
 \end{itemize}
-
-
-Así 
-% \begin{figure}
-%     \centering
-%     \includegraphics[scale=0.47]{images/6/prototipado_evolutivo}
-%     \caption{Ciclo de vida del proyecto}
-%     \label{fig:ciclo-vida-metodologia}
-% \end{figure}
 
 \subsection{Tercer Prototipo}
 
-En la última iteración del proyecto 
+Para este punto, se esperaría cumplir con los requerimientos de manera suficiente para cumplir el objetivo. Por lo tanto, en esta etapa la integración de todos los componentes y poder tener un flujo funcional del sistema completamente integrado.
+
+\begin{itemize}
+    \item Integración del algoritmo de similitud de conceptos.
+    \item Integración de la funcionalidad de recuperación de artículos de la base de datos.
+\end{itemize}
+
+\subsection{Futuras iteraciones}
+
+Una de las principales motivaciones de la metodología elegida para este proyecto es que mejorar los conjuntos de entrenamiento para el intérprete con la constante retroalimentación y evaluación del desempeño del chatbot desplegado. Así mismo, también la posibilidad de considerar otros algoritmos de detección de similitud semántica.
 
 \section{Cronograma de Actividades}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.38]{images/6/cronograma}
+    \includegraphics[scale=0.38]{images/4/cronograma}
     \caption{Cronograma de actividades para el desarrollo de este proyecto.}
     \label{fig:cronograma}
 \end{figure}

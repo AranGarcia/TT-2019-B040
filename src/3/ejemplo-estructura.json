@@ -1,0 +1,53 @@
+{
+    "level": "TITULO",
+    "items": [
+        {
+            "text": "DISPOSICIONES GENERALES",
+            "enum": 1,
+            "content": {
+                "level": "CAPITULO",
+                "items": [
+                    {
+                        "text": "NATURALEZA Y FINALIDADES",
+                        "enum": 1,
+                        "content": {
+                            "level": "ARTICULO",
+                            "items": [
+                                {
+                                    "text": "El presente...",
+                                    "enum": 1
+                                },
+                                {
+                                    "text": "...",
+                                    "enum": 2
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "text": "DE LA FUNCION EDUCATIVA",
+            "enum": 2,
+            "content": {
+                "level": "CAPITULO",
+                "items": [
+                    {
+                        "text": "GENERALIDADES",
+                        "enum": 1,
+                        "content": {
+                            "level": "ARTICULO",
+                            "items": [
+                                {
+                                    "text": "...",
+                                    "enum": 10
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

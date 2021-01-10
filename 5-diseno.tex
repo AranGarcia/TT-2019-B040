@@ -34,19 +34,10 @@ El desarrollo de esta aplicación requiere de los siguientes componentes:
 Para desarrollar la aplicación, se requiere las siguientes fases de diseño:
 
 \begin{enumerate}
-    \item Diseño de la base de Conocimiento
+    \item Diseño de la base de conocimiento
     \item Diseño del chatbot
     \item Diseño del sistema cliente
 \end{enumerate}
-
-% Adicionalmente, se agrega un apartado adicional para detallar los aspectios del \textit{diseño de la conversación}.
-
-
-%
-%
-%   DISEÑO DE LA BASE DE CONOCIMIENTO
-%
-%
 
 
 \section{Diseño de la Base de Conocimiento}
@@ -160,8 +151,7 @@ La consulta introducida será de la siguiente forma:
 El segmento subrayado será nuestra oración de interés y deberá estar sujeto a los requisitos mencionados para la preparación de los datos. Posteriormente, se ejecutará lo siguiente:
 
 \begin{enumerate}
-    \item Se quitan palabras irrelevantes que forman parte de
-    \item Se quitan las palabras vacías de la consulta y las resultantes se llevarán a su forma lematizada.
+    \item Se quitan las palabras irrelevantes o vacías(stop words) de la consulta y las resultantes se llevarán a su forma lematizada.
     \item Se construye el vector de consulta $q$: se establece un valor de 1 en todos los índices del vector cuya dimensión pertenece a una palabra presente en la consulta, de lo contrario se establece en 0 (i.e., es la suma de los vectores unitarios de las palabras que aparecen en la consulta.)
     \item Se iterarán sobre todos los artículos $a$ de un reglamento y se ejecutará la función de similitud entre el vector de consulta mediante $sim(q, a)$.
     \item Se ordenarán conforme al resultado de relevancia obtenido por la función de similitud y se obtendrán todos aquellos que superen un umbral $sim(q, a)  > 0.7$.
@@ -260,6 +250,7 @@ Los pasos de esta actividad son:
 
 
 \subsection{Diagrama de Actividad: Formular respuesta}
+\label{subsec:formular-respuesta}
 
 Esta actividad es el detalle de lo que ocurre cuando se requiere atender un mensaje de un usuario, especificado en el diagrama de secuencia del proceso general de la aplicación en la figura \ref{itm:requisito-intenciones}. El proceso se desribe de la siguiente manera:
 
@@ -332,6 +323,7 @@ Debido a que este sistema proporciona un chatbot disponible para el público de 
 \end{itemize}
 
 \subsection{Descripción de los casos de uso}
+\label{sec:casos-de-uso}
 
 % Listado de casos de uso
 \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
@@ -452,43 +444,3 @@ El entorno del chat se constituye de 3 elementos:
     \caption{Diseño de la ventana de la interfaz de usuario mediante un navegador web.}
     \label{fig:interfaz-usuario}
 \end{figure}
-
-% \subsection{Diseño de la conversación}
-% \label{sec:diseno-conversacion}
-
-% \begin{figure}[ht]
-%     \centering
-
-%     \begin{tabular}{ | m{10em} | m{10em} |m{10em} | }
-%         \hline
-%         \textbf{Intención} & \textbf{Entidades} & \textbf{Acciones}\\
-%         \hline
-%         Saludar & - & Responder saludo \\
-%         \hline
-%         Solicitar reglamento & \textbf{titulo}, \textbf{capitulo}, \textbf{seccion}, \textbf{articulo} & Responder con reglamento\\
-%         \hline
-%         Buscar Conceptos & oración & Buscar artículos con conceptos similares \\
-%         \hline
-%         Despedir & - & Despedir al usuario \\
-%         \hline
-%     \end{tabular}
-%     \caption{Tabla de relación entre intenciones y entidades.}
-%     \label{fig:tabla-intenciones}
-% \end{figure}
-
-% \subsection{Intenciones}
-
-% De acuerdo al requisito funcional \ref{itm:requisito-intenciones}, las intenciones que debe reconocer el chatbot son las siguientes:
-
-% \begin{enumerate}
-%     \item \textbf{Saludar}: Sirve como una formalidad por parte del bot saludando al usuario de acuerdo a la hora del día y que informa al usuario sobre la funcionalidad que puede hacer. Aunque siempre es iniciado cuando el usuario entra a la conversación, el usuario puede volver a saludar y el bot debe volver a responder.
-%     \item Solicitar reglamento
-%     \item Buscar conceptos
-%     \item Despedir
-% \end{enumerate}
-
-% \subsection{Entidades}
-
-% \begin{itemize}
-%     \item 
-% \end{itemize}
